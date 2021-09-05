@@ -1,0 +1,93 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   font-family: sans-serif;
+}
+
+.cuerpoPagina{
+   text-align: center;
+   margin-top: 60px;
+}
+
+.serparador{
+   width: 100%;
+   height: 40px;
+   background:#359EF9 ;
+   border-bottom: 1px solid #fff;
+}
+fieldset{
+   margin-top: 10px;
+   margin-left: 50px;
+   margin-right: 50px;
+   border-color: #359EF9;
+}
+fieldset legend{
+   color: #359EF9;
+   font-weight: 700;
+
+}
+form{
+   margin-left: 50px;
+   margin-right: 50px;
+}
+.divEstilo{
+   width: 100%;
+   display: flex;
+    flex-direction: row;
+}
+.divDatos{
+   width: 100%;
+   margin: 15px;
+   font-weight: 700;
+   color: #359EF9;
+}
+.divDatos p, .pEmprendimientos{
+   margin: 10px;
+   color: black;
+   font-weight: 700;
+}
+
+table{
+   margin: 15px;
+	background-color: white;
+	text-align: center;
+	border-collapse: collapse;
+	width: 90%;
+   font-family: sans-serif;
+}
+th, td{
+	padding: 10px;
+}
+thead{
+	background-color: #359EF9;
+	color: black;
+}
+
+tr:hover td{
+	background-color: #55abf6;
+	color: white;
+}
+ select{
+   width: 20%;
+   cursor: pointer;
+   color: #7b7b7b;
+   font-size: 18px;
+   color: black;
+   border: 2px solid rgba(0,0,0,0.2);
+   border-radius: 12px;
+   transition: all 0.25s ease;
+}
+ 
+ select:hover{
+	background: #B1E8CD;
+}
+.btn{
+   cursor: pointer;
+   border: none;
+   background: #359EF9;
+   padding: 10px 30px;
+   color: white;
+   border-radius: 20px;
+}

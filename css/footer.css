@@ -1,0 +1,74 @@
+/*AQUI COMIENZA EL FOOTER*/
+
+footer{
+   width: 100%;
+   padding: 5px 50px 0px;
+   font-family: sans-serif;
+
+   background-image: url(../img/background-footer.svg);
+   background-size: cover;
+}
+
+.contenedorFooter{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   margin: auto;
+   padding-top: 100px;
+}
+
+.cardFooter{
+   width: 30%;
+   display: flex;
+   flex-direction: column;
+   padding: 10px 40px 10px 40px;
+}
+
+.cardFooter .logo img{
+   width: 100px;
+}
+
+.cardFooter .terms{
+   margin-top: 20px;
+   font-weight: 500;
+   color: #7a7a7a;
+   font-size: 18px;
+
+}
+
+.cardFooter h2{
+   margin-bottom: 30px;
+   color: #242424;
+   font-weight: 700;
+}
+
+.cardFooter a{
+   margin-top: 10px;
+   color: #7a7a7a;
+   font-weight: 600;
+}
+
+.cardFooter a:hover{
+   opacity: 0.8;
+}
+
+.cardFooter a .fab{
+   font-size: 20px;
+}
+
+.divFooter{
+   margin: auto;
+   text-align: center;
+   padding: 0px 40px;
+}
+
+.divFooter p{
+   margin-top: 20px;
+   color: #7a7a7a;
+}
+
+.divFooter hr{
+   border: none;
+   height: 1px;
+   background-color: #7a7a7a;
+}

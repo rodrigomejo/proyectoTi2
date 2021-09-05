@@ -1,0 +1,84 @@
+
+.cuerpoPagina{
+   width: 100%;
+   align-items: center;
+}
+/*aqui comienza Menu navegacio*/
+#menu{
+   margin-top: 60px;
+   background-color: #359EF9 ;
+   font-family: sans-serif;
+}
+
+#menu ul{
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: inline-flex;
+}
+
+#menu ul li{
+  
+   color: white;
+   display: block;
+   padding: 15px 15px;
+   text-decoration: none;
+}
+#menu ul li:hover{
+   background-color: white;
+   color: #359EF9;
+   cursor: pointer;
+}
+.divUsuarios h2, .divEmprendimientos h2, .divPendientes h2{
+   color: #359EF9;
+   text-align: center;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   font-family: sans-serif;
+}
+.divEmprendimientos, .divPendientes{
+   display: none;
+}
+table{
+   margin: 15px;
+	background-color: white;
+	text-align: center;
+	border-collapse: collapse;
+	width: 90%;
+   font-family: sans-serif;
+}
+th, td{
+	padding: 10px;
+}
+thead{
+	background-color: #359EF9;
+	color: black;
+}
+
+tr:hover td{
+	background-color: #55abf6;
+	color: white;
+}
+.btnEditar{
+   cursor: pointer;
+   border: none;
+   background: #359EF9;
+   padding: 7px;
+   color: white;
+}
+.btnEliminar{
+   cursor: pointer;
+   border: none;
+   background: #ff0000;
+   padding: 7px;
+   color: white;
+}
+.pEmprendimientos{
+   margin: 10px;
+   color: rgb(139, 135, 135);
+   font-weight: 700;
+   font-size: x-large;
+   text-align: center;
+}
+
+

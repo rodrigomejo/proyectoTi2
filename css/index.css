@@ -1,0 +1,94 @@
+/*COVER*/
+
+.cover{
+   width: 100%;
+   padding-bottom: 60px;
+   font-family: sans-serif;
+   margin-top: 70px;
+   margin-bottom: 20px;
+}
+
+.contenedorPresentacion{
+
+   margin: auto;
+   padding: 20px;
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+
+   background-image: url(../img/background-cover.svg);
+   background-size: cover;
+   background-position: bottom;
+}
+
+.cover .containerInfo{
+   max-width: 350px;
+   margin-top: 40px;
+   z-index: 2;
+}
+.containerImg img{
+    width: 800px;
+}
+
+.cover h1{
+   max-width: 350px;
+   font-size: 51px;
+   font-weight: 900;
+   color: #373737;
+}
+
+.cover h2{
+   font-size: 51px;
+   font-weight: 900;
+   color: #359EF9;
+   margin-top: -30px;
+}
+
+.cover p{
+   margin-top: 10px;
+   color: #373737;
+   margin-bottom: 20px;
+}
+
+.cover a{
+   padding: 10px 40px;
+   margin-top: 40px;
+   font-size: 18px;
+   font-weight: 600;
+   border: none;
+   color: white;
+   background: #359EF9;
+   border-radius: 20px;
+   box-shadow: 1px 1px 30px -5px #20202049;
+   cursor: pointer;
+   transition: box-shadow 500ms;
+}
+
+.cover input[type="button"]:hover{
+   box-shadow: 1px 1px 30px -5px #20202085;
+}
+
+/*CUERPO PRINCIPAL*/
+.cuerpoPagina h1{
+   width: 100%;
+   text-align: center;
+   font-family: sans-serif;
+   font-size: 40px;
+   font-weight: 900;
+   color: #373737;
+}
+.contenedorArticulo{
+   padding: 0px 20px;
+   margin: auto;
+   margin-top: 20px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.contenedorArticulo .cardArticulo{
+   width: 200px;
+   height: 250px;
+   background: #EFF3F5;
+   margin: 20px 5px;
+}

@@ -1,0 +1,276 @@
+
+/*aqui comienza cuerpo principal*/
+.contenedorPerfil{
+   display: flex;
+   width: 100%;
+   flex-direction: row;
+   margin-top: 70px;
+   background-image: url(../img/background-cover.svg);
+   background-size:contain;
+   justify-content: center;
+}
+.serparador{
+   width: 100%;
+   height: 40px;
+   background:#359EF9 ;
+   border-top-right-radius: 15px;
+   border-bottom-right-radius: 15px;
+   border-bottom: 1px solid #fff;
+}
+.contenedorInformacion{
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   width: 80%;
+   height: 100%;
+
+}
+.contenedorInformacion form{
+   width: 100%;
+   padding-left: 10px;
+   padding-top: 6px;
+   padding-right: 10px;
+   margin-top: 40px;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   color: #359EF9;
+   position: absolute;
+}
+.contenedorInformacion form fieldset{
+   border-color:#359EF9;
+   flex-direction: row;
+}
+.contenedorInformacion form legend {
+   font-size: x-large;
+}
+.divDatosEmprendimientos{
+   display: flex;
+   flex-direction: column
+}
+.divinput{
+   width: 100%;
+   flex-direction: row;
+   margin: 10px;
+   display: flex;
+   justify-content: center;
+}
+.pInput{
+   margin-left: 30px;
+   margin-right: 30px;
+   font-size: x-large;
+}
+.divCategoriasP{
+   width: 305px;;
+   height: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   align-self: flex-end;
+   margin-right: 20%;
+   align-items: center;
+}
+.categoriaP{
+   margin-left: 5px;
+   margin-top: 1px;
+   margin-bottom: 1px;
+   background: #359EF9;
+   color: white;
+   border-radius: 15px;
+   padding: 5px;
+}
+.categoriaP:hover{
+   background:red;
+   color: white;
+}
+.btnAgregar{
+   background: none;
+   border: 1px solid green;
+   color: green;
+   padding: 3px;
+   margin-left: 2px;
+}
+.btnAgregar:hover{
+   background: green;
+   color: white;
+}
+.btnAgregarEmprendimiento{
+   background: #359EF9;
+   padding: 10px 30px;
+   color: white;
+   border-radius: 20px;
+   border: none;
+   cursor: pointer;
+   font-size: larger;
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+.divDatosEmprendimientos div input, select{
+   width: 200px;
+   height: 26px;
+   border: 1px solid #359EF9;
+   color: #359EF9;
+   font-size: 15px;
+   font-weight: bolder;
+}
+.divDatosEmprendimientos div textarea{
+   width: 400px;
+   height: 70px;
+   border: 1px solid #359EF9;
+}
+
+.divImgEmprendimiento{
+   width: 100%;
+   height: 560px;
+   display: flex;
+   align-content: center;
+   align-items: center;
+
+   flex-direction: column;
+}
+.divImgEmprendimiento p{
+   font-size: x-large;
+}
+.imgenEmprendimientoPortada{
+   background:#EFF3F5;
+   background-image: url(../img/126-1266771_post-page-to-add-pictures-comments-add-post.png);
+   background-size: 50px ;
+   background-repeat: no-repeat;
+   background-position: center;
+   width: 400px;
+   height: 300px;
+   margin: 15px;
+   position: relative;
+}
+.imagencuerpoEmprendimiento{
+   
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   
+    
+}
+.imgenEmprendimiento{
+   background:#EFF3F5;
+   background-image: url(../img/126-1266771_post-page-to-add-pictures-comments-add-post.png);
+   background-size: 50px ;
+   background-repeat: no-repeat;
+   background-position: center;
+   
+   width: 200px;
+   margin: 5px;
+   height: 200px;
+   position: relative;
+}
+.divImgEmprendimiento img {
+   background-repeat: no-repeat;
+   background-position: center;
+   width: 100%;
+   height: 100%;
+}
+.divImgEmprendimiento input{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   bottom: 0px;
+   top: 0px;
+   left: 0px;
+   right: 0px;
+   opacity: 0;
+}
+
+
+/*aqui comienza la barra laterral*/
+.barraLateralUsuario{
+   width: 320px;
+   height: 970px;
+   position: inherit;
+}
+#checkemprendimientos{
+   display: none;
+}
+#ulnavEmprendimiento {
+   margin-top: 10px;
+   margin-bottom: 10px;
+   flex-direction: column;
+   width: 0%;
+   display: none;
+   
+   align-items: center;
+}
+
+#checkemprendimientos:checked ~ #ulnavEmprendimiento {
+   width: 100%;
+   display: flex;
+
+}
+.navUsuario{
+   width: 100%;
+   height: 100%;
+   left: 0px;
+   text-align: center;
+   background: #359EF9;
+   border-top-left-radius: 15px;
+   border-bottom-right-radius: 15px;
+   border-bottom-left-radius: 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 39px;
+   font-size: larger;
+}
+.divImgUsuario{
+   width: 100%;
+   
+   padding-top: 5px;
+   margin-bottom: 25px;
+   border-top: 1px solid #fff;
+}
+.divImgUsuario img{
+   width: 180px;
+   height: 160px;
+   margin-bottom: 10px;
+   border-radius: 50%;
+
+}
+.divImgUsuario h3{
+   color:white;
+}
+.barraLateralUsuario ul{
+   margin-top: 15px;
+   margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   align-items: center;
+}
+.barraLateralUsuario li{
+   list-style: none;
+   padding: 10px;
+   color:white;
+   cursor: pointer;
+   width: 100%;
+   text-align: center;
+   transition: all 300ms;
+
+}
+
+.barraLateralUsuario li:hover{
+   background: rgba(0,0,0,0.2);
+}
+
+.navUsuario label{
+   padding: 5px;
+   background: #359EF9;
+   color:white;
+   border-top: 1px solid #fff;
+   border-bottom: 1px solid #fff;
+   width: 100%;
+   cursor: pointer;
+
+}
+.navUsuario label:hover{
+   background: #47a3f3;
+}
+
