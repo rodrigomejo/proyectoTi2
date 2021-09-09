@@ -60,6 +60,21 @@
 	font-size: 100px;
 	color: green;
 }
+.fa-exclamation-triangle{
+	font-size: 100px;
+	color: rgba(211, 7, 7, 0.904);
+}
+#lblConfirmarModal{
+	background-color: rgba(211, 7, 7, 0.904);
+	border: none;
+}
+.divbutton{
+	display: inline;
+}
+#lblSalirModal{
+	border: none;
+	background-color: green;
+}
 #check-modal{
 	display: none;
 }

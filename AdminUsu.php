@@ -1,6 +1,9 @@
 <?php
 include('componentes/header.php'); 
-$id = isset($_GET["id"]) ? $_GET["id"] :0;
+if (isset($_POST["id"]) == false && isset($_SESSION['idUsuAdmin']) == false ) {
+  header("location: ./administrar.php");
+}
+$id = isset($_POST["id"]) ? $_POST["id"] : $_SESSION['idUsuAdmin'];
 $username = "";
 $nombre = "";
 $mail = "";
@@ -20,10 +23,13 @@ include('./php/conexion.php');
   }
 ?>
 <div class="cuerpoPagina">
-  <div class="serparador"></div>
+  <div class="serparador">
+  <a class="btnAtras" href="./php/back.php">ATRAS</a>
+  </div>
+
   <fieldset>
     <legend>DATOS DEL USUARIO</legend>
-    <form action="validations/crear-valid.php" method="post" class="row g-3" enctype="multipart/form-data">
+    <form action="./php/editarUsuarioEliminar.php" method="post">
       <div class="divEstilo">
         <div class="divDatos">
           <input type="hidden" name="id" value="<?php echo $id;?>">
@@ -47,9 +53,17 @@ include('./php/conexion.php');
       </div>
       <div class="divDatos">
         <label for="inputTipoUsuario" class="form-label">TIPO USUARIO:</label>
-        <select id="selectTipoUsuario"name="TipoUsuario">
-          <option value="value1"selected><?php echo $tipoUsuario;?></option>
-          <option value="value2" >Admin</option>
+        <input type="hidden" name="TipoUsuario" value="<?php echo $tipoUsuario;?>">
+        <select id="selectTipoUsuario"name="TipoUsuarioSelect">
+          <option value="<?php echo $tipoUsuario;?>"selected><?php echo $tipoUsuario;?></option>
+          <?php 
+            if ($tipoUsuario == "User") {
+              echo ' <option value="Admin" >Admin</option>';
+            } else{
+              echo '<option value="User" >User</option>';
+            }
+          ?>
+         
         </select>
       </div>
       <div class="divDatos">

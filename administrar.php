@@ -15,12 +15,12 @@ $datosEmpPublicados = $conexion->query($empPublicados);
 ?>
 <div id="menu">
 	<ul>
-		<li onclick=" myFunction('liUsuarios')" id="liUsuarios" class="navAdministrar">Usuarios
+		<li id="liUsuarios" class="navAdministrar">Usuarios
     </li>
-		<li onclick="myFunction('liEmprendimientos')" id="liEmprendimientos"class="navAdministrar">
+		<li id="liEmprendimientos"class="navAdministrar">
     Emprendimientos
     </li>
-		<li onclick="myFunction('liPendientes')"id="liPendientes"class="navAdministrar">
+		<li id="liPendientes" class="navAdministrar">
       Pendientes
     </li>
 	</ul>
@@ -29,16 +29,21 @@ $datosEmpPublicados = $conexion->query($empPublicados);
   <div id="divUsuarios" class="divUsuarios">
     <h2>Usuarios Registrados</h2>
     <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Correo</th>
-          <th scope="col">Telefono</th>
-          <th scope="col">Usuario</th>
-          <th scope="col">Tipo usuario</th>
-          <th scope="col">Accion</th>
-        </tr>
-      </thead>
+      <?php 
+        if ($response->num_rows > 0) {  
+        
+          echo ' <thead>
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Tipo usuario</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+                </thead>';
+        }
+      ?>
       <tbody>
         <?php
           if ($response->num_rows > 0) {
@@ -50,41 +55,55 @@ $datosEmpPublicados = $conexion->query($empPublicados);
                   <td>'.$row["usuario"].'</td>
                   <td>'.$row["tipoUsuario"].'</td>
                   <td style="display:flex">
-                     <form action="AdminUsu.php" method="get">
+                     <form action="adminUsu.php" method="post">
                         <input type="hidden" value="'.$row["id"].'" name="id">
                         <button type="submit" class="btnEditar">EDITAR</button>
                      </form>
-                     <form id="deleteForm'.$row["id"].'" action="validations/confirm-delete.php" method="post">
+                     <form id="deleteForm'.$row["id"].'">
                         <input name="id" type="hidden" value="'.$row["id"].'">
-                     <button type="submit" id="delete'.$row["id"].'" onclick="clickHandler(event)" class="btnEliminar">ELIMINAR</button>
+                     <button type="button" onclick="eliminarUsuario('.$row["id"].')" id="delete'.$row["id"].'" class="btnEliminar">ELIMINAR</button>
                      </form>
                   </td> 
                   </tr>';              
           }
           } else {
-              printf('No record found.<br />');
+            echo' <P class="pEmprendimientos">No hay Usuarios registrados</P>';
           }
         ?>
       </tbody>
     </table>
+    <div class="contenedorModal">
+      <input type="checkbox" id="check-modal">
+      <div class="modal">
+        <div class="contenedor">
+          <div id="contenidoModal" class="contenido">
+            <i class="validacionEstado fas fa-exclamation-triangle"></i>
+            <p>QUIERES ELIMINAR  ESTE USUARIO?</p>
+            <div class="divbutton">
+            <label for="check-modal" id="lblConfirmarModal">CONFIRMAR</label>
+            <label for="check-modal" id="lblSalirModal">SALIR</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div id="divEmprendimientos" class="divEmprendimientos">
     <h2>Emprendimientos Publicados</h2>
     <table class="table">
-    <?php
-      if ($datosEmpPublicados->num_rows > 0) {
-          echo' <thead>
-                  <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Direccion</th>
-                  <th scope="col">Telefono</th>
-                  <th scope="col">Usuario</th>
-                  <th scope="col">Accion</th>
-                  </tr>
-                </thead>';
-      }
-    ?>  
-      
+      <?php
+        if ($datosEmpPublicados->num_rows > 0) {
+            echo' <thead>
+                    <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Accion</th>
+                    </tr>
+                  </thead>';
+        }
+      ?>  
       <tbody>
         <?php
           if ($datosEmpPublicados->num_rows > 0) {
@@ -95,21 +114,19 @@ $datosEmpPublicados = $conexion->query($empPublicados);
               while($nombreRes = $datosnombreRes->fetch_assoc()) {
                 $nom = $nombreRes['nombreCompleto'];
               }
-              
               echo '<tr id="'.$row["id"].'">
                   <td>'.$row["nombre"].'</td>
                   <td>'.$row["direccion"].'</td>
                   <td>'.$row["telefono"].'</td>
                   <td>'.$nom.'</td>
-
                   <td style="display:flex">
-                     <form action="AdminUsu.php" method="get">
+                     <form action="adminUsu.php" method="get">
                         <input type="hidden" value="'.$row["id"].'" name="id">
                         <button type="submit" class="btnEditar">VER</button>
                      </form>
                   </td> 
                   </tr>';              
-          }
+            }
           } else {
             echo' <P class="pEmprendimientos">No hay emprendimientos publicados</P>';
           }
@@ -152,7 +169,7 @@ $datosEmpPublicados = $conexion->query($empPublicados);
                   <td>'.$nom.'</td>
 
                   <td style="display:flex">
-                     <form action="AdminUsu.php" method="get">
+                     <form action="emprendimiento.php" method="post">
                         <input type="hidden" value="'.$row["id"].'" name="id">
                         <button type="submit" class="btnEditar">REVISION</button>
                      </form>

@@ -26,3 +26,14 @@ let caruselItemLast = caruselItem[caruselItem.length -1];
       carusel.style.marginLeft = "-100%";
    }, 500);
 })
+
+var selectElement = document.querySelector('.selectEstadoEmpre');
+selectElement.addEventListener('change', (event) => {
+      var divMsgEstado = document.getElementById("msgEstadoEmpre")
+      if (event.target.value ==="NO PUBLICADO") {
+         var divMsgEstado = document.getElementById("msgEstadoEmpre")
+         divMsgEstado.style.display = 'block'
+      }else{
+         divMsgEstado.style.display = 'none'
+      }
+});

@@ -17,8 +17,10 @@ switch ($paginaActual) {
        break;
    case "perfilUsuario.php":
       $titulo = "Perfil";
-      $estilo = array(' <link rel="stylesheet" href="./css/estilosPerfil.css">');
-      $script = array('<script src="./js/funcionesPerfilUsuario.js"></script>','<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>');
+      $estilo = array(' <link rel="stylesheet" href="./css/estilosPerfil.css">', 
+                      ' <link rel="stylesheet" href="./css/estiloModal.css">');
+      $script = array('<script src="./js/funcionesPerfilUsuario.js"></script>','<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>', 
+                      ' <link rel="stylesheet" href="./css/estiloModal.css">');
       $selectPerfilSes = 'class="select"';
 
        break;
@@ -37,13 +39,15 @@ switch ($paginaActual) {
       break;
    case "administrar.php":
          $titulo = "Administrar";
-         $estilo = array(' <link rel="stylesheet" href="./css/estilosAdministrar.css">');
+         $estilo = array(' <link rel="stylesheet" href="./css/estilosAdministrar.css">', 
+                        ' <link rel="stylesheet" href="./css/estiloModal.css">');
          $script = array('<script src="./js/funcionesAdministrar.js"></script>','<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>');
          $selectAdmin= 'class="select">ADMINISTRAR</a>';
          break;
-   case "AdminUsu.php":
-         $titulo = "Administrar";
-         $estilo = array(' <link rel="stylesheet" href="./css/estilosAdminUsu.css">');
+   case "adminUsu.php":
+         $titulo = "administrar";
+         $estilo = array(' <link rel="stylesheet" href="./css/estilosAdminUsu.css">', 
+                         ' <link rel="stylesheet" href="./css/estiloModal.css">');
          $script = array('<script src="./js/funcionesAdminUsu.js"></script>','<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>');
          $selectAdmin= 'class="select">ADMINISTRAR</a>';
             break;

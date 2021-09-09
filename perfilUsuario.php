@@ -81,8 +81,19 @@ if (null == ( isset( $_SESSION['id']))) {
                   </div>
               </div>
                <input  class="btnAgregarEmprendimiento" id="btnAgregarEmprendimiento" type="button" value="AGREGAR EMPRENDIMIENTO ">
-
             </fieldset>
+            <div class="contenedorModal">
+                  <input type="checkbox" id="check-modal">
+                  <div class="modal">
+                     <div class="contenedor">
+                        <div id="contenidoModal" class="contenido">
+                           <i class="validacionEstado fas fa-check-circle"></i>
+                           <p>EMPRENDIMIENTO  REGISTRADO CON EXITO</p>
+                           <label for="check-modal" id="lblAceptarModal">Aceptar</label>
+                        </div>
+                     </div>
+                  </div>
+                </div>
           </form>
       </div>
    </div>

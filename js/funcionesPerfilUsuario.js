@@ -120,7 +120,28 @@ function enviarEmprendimiento(dato) {
       url: './php/altaEmprendimiento.php',
       data: {'nuevoEmprendimiento': JSON.stringify(dato)},//capturo array     
       success: function(dato){
+         let check = document.getElementById('check-modal') ;
+         let aceptarModal = document.getElementById('lblAceptarModal');
+         let contenidoModal = document.getElementById('contenidoModal')
+         if (dato === "1") {
+            check.checked = true;
+            aceptarModal.addEventListener('click', ()=>{
+            window.location.reload();
+         })
+         }else if (dato ==="") {
+            contenidoModal.childNodes[1].classList =""
+            contenidoModal.childNodes[1].classList ="validacionEstado fas fa-times-circle"
+            contenidoModal.childNodes[1].style.color= "red"
+            contenidoModal.childNodes[3].innerText= "NO SE PUDO REGISTRAR EL EMPRENDIMIENTO"
+            check.checked = true;
+            aceptarModal.addEventListener('click', ()=>{
+            contenidoModal.childNodes[1].classList =""
+            contenidoModal.childNodes[1].classList ="validacionEstado fas fa-check-circle"
+            contenidoModal.childNodes[1].style.color= "green"
+            contenidoModal.childNodes[3].innerText= "EMPRENDIMIENTO REGISTRADO CON EXITO"
+          })
          console.log(dato)
-    }
-});
+         }
+      }
+   });
 }

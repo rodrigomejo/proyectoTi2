@@ -3,14 +3,11 @@ include 'conexion.php';
 session_start();
 
 $data = json_decode($_POST['nuevoEmprendimiento'], true);
-//print_r($data);
-echo $data['imagenes'][0];
-die();
 //Alta Emprendimiento 
-$nombre = $_POST['nombre'];
-$direccion = $_POST['direccion'];
-$telefono = $_POST['telefono'];
-$descripcion = $_POST['descripcion'];
+$nombre = $data['nombre'];
+$direccion = $data['direccion'];
+$telefono = $data['telefono'];
+$descripcion = $data['descripcion'];
 $id = $_SESSION['id'];
 $estado = "PENDIENTE";
 
@@ -24,8 +21,21 @@ if ($altaEmprendimiento){
       if ($row = mysqli_fetch_row($idempre)) {
             $idem = trim($row[0]);
       }
+      //Insertar todas las imagenes subidas
+      for ($i=0; $i < count($data['imagenes']) ; $i++) {
+            $ruta = $data['imagenes'][$i];
+            $insertImgEmprendimiento = "INSERT INTO imagenesemp(id_empre,num, ruta) VALUES ('$idem', '$i', '$ruta')";
+            $altaimgEmprendimiento = mysqli_query($conexion, $insertImgEmprendimiento);
+      }
+      //Insertar todas las categorias 
+      for ($i=0; $i < count($data['categoria']) ; $i++) {
+            $categoria = $data['categoria'][$i];
+            $insertCatEmprendimiento = "INSERT INTO categoriasemp(id_empre,categoria) VALUES ('$idem', '$categoria')";
+            $altaCatEmprendimiento = mysqli_query($conexion, $insertCatEmprendimiento);
+      }
+
       
-echo "Ultimo ID : ".$idem; 
+echo "$altaEmprendimiento"; 
 }else{
       echo $altaEmprendimiento;
 }
