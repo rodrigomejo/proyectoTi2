@@ -466,3 +466,6 @@ tr:hover td{
    color: white;
    border-radius: 0px;
 }
+.msgPdatosVacio{
+   display: none;
+}
