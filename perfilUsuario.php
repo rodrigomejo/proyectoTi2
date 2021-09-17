@@ -351,28 +351,45 @@
             </div>
          </div>
          <div  id="contenedorDatosUsuario">
-            <div class="divEstilo">
-               <div class="divDatos">
-                  <input type="hidden" name="id" value="<?php echo $id;?>">
-                  <label for="nombre" class="">NOMBRE COMPLETO:</label>
-                  <P><?php echo $nombre;?></P> 
-               </div>
-               <div class="divDatos">
-                  <label for="inputEmail4" class="">CORREO:</label>
-                  <P><?php echo $mail;?></P>
-               </div>
-            </div>
-            <div class="divEstilo">
-               <div class="divDatos" >
-                  <label for="telefono" class="">TELEFONO:</label>
-                  <P><?php echo $telefono;?></P>
-               </div>
-               <div class="divDatos" >
-                  <label for="username" class="">USUARIO:</label>
-                  <P><?php echo $username;?></P>
+           <div>
+           <fieldset class="separadorNotificaciones">
+               <form id="formDatosUsu">
+                  <div class="divEstilo">
+                     <div class="divDatos">
+                        <input type="hidden" name="id" value="<?php echo $id;?>">
+                        <label  for="nombre" class="">NOMBRE COMPLETO:</label>
+                        <input disabled="true" class="inputDatoUsuario" name="nombre" type="text" value="<?php echo $nombre;?>">
+                        <P><?php echo $nombre;?></P> 
+                     </div>
+                     <div class="divDatos">
+                        <label for="inputEmail4" class="">CORREO:</label>
+                        <input disabled="true" class="inputDatoUsuario" name="email" type="text" value="<?php echo $mail;?>">
+                        <P><?php echo $mail;?></P>
+                     </div>
                   </div>
-               </div>
-            </div>
+                  <div class="divEstilo">
+                     <div class="divDatos" >
+                        <label for="telefono" class="">TELEFONO:</label>
+                        <input disabled="true"  class="inputDatoUsuario" name="telefono" type="text" value="<?php echo $telefono;?>">
+                        <P><?php echo $telefono;?></P>
+                     </div>
+                     <div class="divDatos" >
+                        <label  for="username" class="">USUARIO:</label>
+                        <input disabled="true" class="inputDatoUsuario" name="username" type="text" value="<?php echo $username;?>">
+                        <P><?php echo $username;?></P>
+                        </div>
+                     </div>
+                  </div>
+                  <fieldset class="separadorNotificaciones">
+                     <div id="msgDatosUsuario" class="msgDatosUsuario"><h3>DATOS ACTUALIZADOS CON EXITO</h3></div>
+                     <button id="guardarDatosUsu" class="btnGuardarDatos">GUARDAR DATOS</button>
+                     <input id="editarDatosUsu" type="button" class="btnAgregarEmprendimiento" value="EDITAR DATOS">
+                    
+                  </fieldset>
+                  
+               </form>
+            </fieldset>
+           </div>
          </div>
    </div>
 <?php include('componentes/footer.php') ?>

@@ -54,6 +54,27 @@
    display: flex;
    flex-direction: column
 }
+.inputDatoUsuario{
+   height: 26px;
+   border: 1px solid #359EF9;
+   color: #359EF9;
+   font-size: 15px;
+   font-weight: bolder;
+   text-align: center;
+
+}
+.inputDatoUsuarioError{
+   height: 26px;
+   border: 1px solid #bb2929;
+   color: #359EF9;
+   font-size: 15px;
+   font-weight: bolder;
+   text-align: center;
+}
+.msgDatosUsuario{
+   color: chartreuse;
+   display: none;
+}
 .divinput{
    width: 100%;
    flex-direction: row;
@@ -110,6 +131,18 @@
    font-size: larger;
    margin-top: 5px;
    margin-bottom: 5px;
+}
+.btnGuardarDatos{
+   background: #359EF9;
+   padding: 10px 30px;
+   color: white;
+   border-radius: 20px;
+   border: none;
+   cursor: pointer;
+   font-size: larger;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   display: none;
 }
 .inputDato,.inputDatoMod, select{
    width: 200px;

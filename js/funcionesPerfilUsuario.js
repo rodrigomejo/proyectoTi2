@@ -483,3 +483,49 @@ function eliminarCategorias() {
    })
 }
 eliminarCategorias()
+//Funcion form Editar datos Usuario
+ var editarDatosUsu = document.getElementById('editarDatosUsu');
+ editarDatosUsu.addEventListener('click',(e)=>{
+   let btnGuardarDatos = document.getElementById('guardarDatosUsu')
+   let inputdatoUsu = document.querySelectorAll('.inputDatoUsuario')
+   let formUsuDatos = document.getElementById('formDatosUsu')
+   inputdatoUsu.forEach((accion)=>{
+      if (accion.disabled === false) {
+         accion.disabled = true
+         btnGuardarDatos.style.display ='none'
+         e.target.value= 'EDITAR DATOS'
+         e.target.style.background = '#359EF9'
+         formUsuDatos.reset()
+      }else{
+         accion.disabled = false
+         btnGuardarDatos.style.display= 'inline-flex'
+         e.target.value= 'CANCELAR'
+         e.target.style.background = 'red'
+         
+      }
+    })
+
+ })
+
+ //Funcion Enviar datos del usuario
+  var guardarDatosUsu = document.getElementById('guardarDatosUsu')
+  guardarDatosUsu.addEventListener('click', function(e){    
+    e.preventDefault()
+    $.ajax({
+       url: './php/editarDatosUsuario.php',
+       type: 'POST',
+       data: $('#formDatosUsu').serialize(),
+       success: function(res){
+         if (res === "1") {
+            document.getElementById('msgDatosUsuario').style.display = 'block';
+            setTimeout(
+            window.location.reload(),10000);
+             
+         }else if (res === "camposVacios") {
+            document.getElementById('msgDatosUsuario').style.display = 'block';
+         }else{
+
+         }
+       }
+    })
+ })
