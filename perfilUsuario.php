@@ -381,7 +381,7 @@
                      </div>
                   </div>
                   <fieldset class="separadorNotificaciones">
-                     <div id="msgDatosUsuario" class="msgDatosUsuario"><h3>DATOS ACTUALIZADOS CON EXITO</h3></div>
+                     <div id="msgDatosUsuario" class="msgDatosUsuario"></div>
                      <button id="guardarDatosUsu" class="btnGuardarDatos">GUARDAR DATOS</button>
                      <input id="editarDatosUsu" type="button" class="btnAgregarEmprendimiento" value="EDITAR DATOS">
                     

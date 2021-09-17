@@ -494,6 +494,7 @@ eliminarCategorias()
          accion.disabled = true
          btnGuardarDatos.style.display ='none'
          e.target.value= 'EDITAR DATOS'
+         document.getElementById('msgDatosUsuario').style.display ='none'
          e.target.style.background = '#359EF9'
          formUsuDatos.reset()
       }else{
@@ -501,6 +502,7 @@ eliminarCategorias()
          btnGuardarDatos.style.display= 'inline-flex'
          e.target.value= 'CANCELAR'
          e.target.style.background = 'red'
+         
          
       }
     })
@@ -516,13 +518,20 @@ eliminarCategorias()
        type: 'POST',
        data: $('#formDatosUsu').serialize(),
        success: function(res){
+           var msgDatosVacios = document.getElementById('msgDatosUsuario')
          if (res === "1") {
-            document.getElementById('msgDatosUsuario').style.display = 'block';
+            msgDatosVacios.textContent = ""
+            msgDatosVacios.textContent ="DATOS ACTUALIZADOS CON EXITO"
+            msgDatosVacios.style.color ='chartreuse'
+            msgDatosVacios.style.display = 'block';
             setTimeout(
-            window.location.reload(),10000);
+            window.location.reload(),30000);
              
          }else if (res === "camposVacios") {
-            document.getElementById('msgDatosUsuario').style.display = 'block';
+            msgDatosVacios.textContent = ""
+            msgDatosVacios.textContent ="TODOS LOS CAMPOS DEBEN ESTAR COMPLETOS"
+            msgDatosVacios.style.color ='#bb2929'
+            msgDatosVacios.style.display = 'block';
          }else{
 
          }
