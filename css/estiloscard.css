@@ -57,6 +57,7 @@
 .cardBack{
     transform: rotateY(180deg);
     background: white;
+    border: 2px,solid;
 }
 
 .cuerpoCardFront{
@@ -75,17 +76,22 @@
 
 
 .cuerpoCardBack{
-    padding: 40px;
+
     text-align: center;
+    align-items: center;
+    word-break: break-all;
     transform: translateZ(60px);
 }
-
+.cuerpoCardBack h4{
+    margin-top: 10px;
+    color:#359EF9 ;
+}
 .cuerpoCardBack p{
-    margin-top: 30px;
+    margin-top: 10px;
     font-size: 18px;
 }
 
-.cuerpoCardBack input{
+.cuerpoCardBack button{
     padding: 10px 40px;
     margin-top: 30px;
     font-size: 16px;
@@ -98,6 +104,6 @@
     transition: box-shadow 600ms;
 }
 
-.cuerpoCardBack input:hover{
+.cuerpoCardBack button:hover{
     box-shadow: 1px 1px 30px 0px #449de6;
 }

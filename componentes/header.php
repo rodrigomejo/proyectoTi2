@@ -5,16 +5,16 @@ switch ($paginaActual) {
       $titulo = "Inicio";
       $estilo = array(' <link rel="stylesheet" href="css/index.css">', 
                       ' <link rel="stylesheet" href="css/estiloscard.css">');
-      $script = array('<script src="./js/funcionesindex.js"></script>');
+      $script = array();
       $selectIndex = 'class="select"';
-       break;
+      break;
    case "inicioRegistro.php":
       $titulo = "Inicio";
       $estilo = array(' <link rel="stylesheet" href="./css/estiloInicioRegistro.css">', 
                       ' <link rel="stylesheet" href="./css/estiloModal.css">');
       $script = array('<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>','<script src="./js/funcionInicioRegistro.js"></script>');
       $selectPerfilSes = 'class="select"';
-       break;
+      break;
    case "perfilUsuario.php":
       $titulo = "Perfil";
       $estilo = array(' <link rel="stylesheet" href="./css/estilosPerfil.css">', 
@@ -22,8 +22,7 @@ switch ($paginaActual) {
       $script = array('<script src="./js/funcionesPerfilUsuario.js"></script>','<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>', 
                       ' <link rel="stylesheet" href="./css/estiloModal.css">');
       $selectPerfilSes = 'class="select"';
-
-       break;
+      break;
    case "emprendimiento.php":
       $titulo = "Emprendimiento";
       $estilo = array(' <link rel="stylesheet" href="css/estilosEmprendimiento.css">');
@@ -34,7 +33,7 @@ switch ($paginaActual) {
       $titulo = "Emprendimientos";
       $estilo = array(' <link rel="stylesheet" href="./css/estilosEmprendimientos.css">', 
                       ' <link rel="stylesheet" href="./css/estiloscard.css">');
-      $script = array('<script src="./js/funcionesEmprendimientos.js"></script>');
+      $script = array();
       $selectEmps = 'class="select"';
       break;
    case "administrar.php":
@@ -48,9 +47,9 @@ switch ($paginaActual) {
          $titulo = "administrar";
          $estilo = array(' <link rel="stylesheet" href="./css/estilosAdminUsu.css">', 
                          ' <link rel="stylesheet" href="./css/estiloModal.css">');
-         $script = array('<script src="./js/funcionesAdminUsu.js"></script>','<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>');
+         $script = array('<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>');
          $selectAdmin= 'class="select">ADMINISTRAR</a>';
-            break;
+         break;
 }
 session_start();
 if (null == ( isset( $_SESSION['id']))) {     

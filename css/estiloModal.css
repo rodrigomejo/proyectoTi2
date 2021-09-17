@@ -14,7 +14,7 @@
 	opacity: 0;
 	visibility: hidden;
 }
-#check-modal:checked ~ .modal{
+#check-modal:checked ~ .modal, #check-modalAgregar:checked ~ .modal,#check-modalModificar:checked ~ .modal{
 	opacity: 1;
 	visibility: visible;
 } 
@@ -29,7 +29,7 @@
 	position: relative;
 	transform: translateY(-30%);
 }
-#check-modal:checked ~ .modal .contenedor{
+#check-modal:checked ~ .modal .contenedor,#check-modalAgregar:checked ~ .modal .contenedor,#check-modalModificar:checked ~ .modal .contenedor{
 	transform: translateY(0%);
 } 
 .contenido label{
@@ -75,6 +75,6 @@
 	border: none;
 	background-color: green;
 }
-#check-modal{
+#check-modal, #check-modalAgregar, #check-modalModificar{
 	display: none;
 }

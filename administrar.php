@@ -1,28 +1,47 @@
 <?php 
-include('componentes/header.php');
-include('./php/conexion.php'); 
-if ( $_SESSION['tipoUsuario'] == 'User') {
-   header("Location:./perfilUsuario.php");
-}
-$id = $_SESSION['id'];
-$usuRegistrados = "SELECT id,nombreCompleto,correo,telefono,usuario,tipoUsuario FROM usuario WHERE id <> $id  ";
-$empPendientes = "SELECT id,nombre,direccion, telefono ,id_user FROM emprendimientos WHERE id_user <> $id AND estado = 'PENDIENTE'";
-$empPublicados = "SELECT id,nombre,direccion, telefono ,id_user FROM emprendimientos WHERE id_user <> $id AND estado = 'PUBLICADO'";
-$response = $conexion->query($usuRegistrados);
-$datosEmpPendientes = $conexion->query($empPendientes);
-$datosEmpPublicados = $conexion->query($empPublicados);
-
+  include('componentes/header.php');
+  include('./php/conexion.php'); 
+  if ( $_SESSION['tipoUsuario'] == 'User') {
+    header("Location:./perfilUsuario.php");
+  }
+  if ($_SESSION['tipoUsuario'] == 'root') {
+    $usuRegistrados = "SELECT id,nombreCompleto,correo,telefono,usuario,tipoUsuario FROM usuario  ";
+    $empPendientes = "SELECT id,nombre,direccion, telefono ,id_user FROM emprendimientos WHERE estado = 'PENDIENTE'";
+    $empPublicados = "SELECT id,nombre,direccion, telefono ,id_user FROM emprendimientos WHERE estado = 'PUBLICADO'";
+    $categorias = "SELECT * FROM categorias";
+  }else{
+    $id = $_SESSION['id'];
+    $usuRegistrados = "SELECT id,nombreCompleto,correo,telefono,usuario,tipoUsuario FROM usuario WHERE id <> $id  ";
+    $empPendientes = "SELECT id,nombre,direccion, telefono ,id_user FROM emprendimientos WHERE id_user <> $id AND estado = 'PENDIENTE'";
+    $empPublicados = "SELECT id,nombre,direccion, telefono ,id_user FROM emprendimientos WHERE id_user <> $id AND estado = 'PUBLICADO'";
+    $categorias = "SELECT * FROM categorias";
+  }
+  $response = $conexion->query($usuRegistrados);
+  $datosEmpPendientes = $conexion->query($empPendientes);
+  $datosEmpPublicados = $conexion->query($empPublicados);
+  $categoriasRes = $conexion->query($categorias);
 ?>
 <div id="menu">
 	<ul>
 		<li id="liUsuarios" class="navAdministrar">Usuarios
     </li>
-		<li id="liEmprendimientos"class="navAdministrar">
-    Emprendimientos
-    </li>
-		<li id="liPendientes" class="navAdministrar">
-      Pendientes
-    </li>
+    <?php 
+      if ($_SESSION['tipoUsuario'] != 'root') {
+        echo'<li id="liEmprendimientos"class="navAdministrar">
+              Emprendimientos
+              </li>
+              <li id="liPendientes" class="navAdministrar">
+                Pendientes
+              </li>
+              <li id="liCategorias" class="navAdministrar">
+                Categorias
+              </li>';
+      }else{
+        echo'<li class="navAdministrar">
+                <a href="./php/logout.php">Salir</a>
+              </li>';
+      }
+    ?>
 	</ul>
 </div>
 <div class="cuerpoPagina">
@@ -31,7 +50,6 @@ $datosEmpPublicados = $conexion->query($empPublicados);
     <table class="table">
       <?php 
         if ($response->num_rows > 0) {  
-        
           echo ' <thead>
                   <tr>
                     <th scope="col">Nombre</th>
@@ -65,7 +83,7 @@ $datosEmpPublicados = $conexion->query($empPublicados);
                      </form>
                   </td> 
                   </tr>';              
-          }
+              }
           } else {
             echo' <P class="pEmprendimientos">No hay Usuarios registrados</P>';
           }
@@ -120,7 +138,8 @@ $datosEmpPublicados = $conexion->query($empPublicados);
                   <td>'.$row["telefono"].'</td>
                   <td>'.$nom.'</td>
                   <td style="display:flex">
-                     <form action="adminUsu.php" method="get">
+                     <form action="emprendimiento.php" method="post">
+                     <input type="hidden" value="PUBLICADO" name="estadoActual">
                         <input type="hidden" value="'.$row["id"].'" name="id">
                         <button type="submit" class="btnEditar">VER</button>
                      </form>
@@ -182,6 +201,29 @@ $datosEmpPublicados = $conexion->query($empPublicados);
         ?>
       </tbody>
     </table>
+  </div>
+  <div id="divCategorias" class="divCategorias">
+    <h2>Categorias</h2>
+    <div class="divSelect">
+      <select id="selectCategorias"name="Categorias">
+        <option value="0" selected>Elige una opción </option>
+        <?php 
+          if ($categoriasRes->num_rows > 0) {
+              while($datosCategoria = $categoriasRes->fetch_assoc()) {
+                echo'<option value="'.$datosCategoria['id'].'">'.$datosCategoria['categoria'].'</option> ';
+              }
+          }
+        ?>
+      </select>
+      <form action="./php/categorias.php" method="POST">
+        <input id="inputSelectMod" name="categoria" type="text">
+        <input id="idCategoria" name="id" type="hidden" value="">
+        <div class="divBtnCategorias">
+        <button id="btnAgregar" type="submit" class="btnEditar">AGREGAR</button>
+        <button id="btnModificar" type="submit" class="btnEliminar">MODIFICAR</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 <?php include('componentes/footer.php') ?>

@@ -29,14 +29,14 @@
    color: #359EF9;
    cursor: pointer;
 }
-.divUsuarios h2, .divEmprendimientos h2, .divPendientes h2{
+.divUsuarios h2, .divEmprendimientos h2, .divPendientes h2,.divCategorias h2{
    color: #359EF9;
    text-align: center;
    margin-top: 5px;
    margin-bottom: 5px;
    font-family: sans-serif;
 }
-.divEmprendimientos, .divPendientes{
+.divEmprendimientos, .divPendientes,.divCategorias{
    display: none;
 }
 table{
@@ -80,5 +80,29 @@ tr:hover td{
    font-size: x-large;
    text-align: center;
 }
-
-
+.divCategorias{
+   text-align: center;
+}
+.divSelect{
+   margin-top: 20px;
+   display: inline-grid;
+}
+#selectCategorias,.divSelect input {
+   width: 200px;
+   height: 26px;
+   border: 1px solid #359EF9;
+   color: #359EF9;
+   font-size: 15px;
+   font-weight: bolder;
+   margin: 15px;
+}
+.divBtnCategorias{
+   margin-top: 20px;
+}
+.navAdministrar a{
+   color: white;
+   width: 100%;
+}
+.navAdministrar a:hover{
+   color: #359EF9;
+}

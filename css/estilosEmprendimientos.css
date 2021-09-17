@@ -17,43 +17,24 @@
    padding-right: 10px;
    padding-left: 5px;
    height: 30px;
-   position: absolute;
-   background:#359EF9 ;
-}
-
-#check{
-   display: none;
-}
-
-#check:checked ~ .categorias{
-   width: 205px;
-   left: 0px;
-}
-
-.categorias{
    position: fixed;
-   width: 0px;
-   left: 0px;
-   background: #359EF9;
-   border-bottom-left-radius: 15px;
-   border-bottom-right-radius: 15px;
-   transition: all 400ms cubic-bezier(1,0,0,1);
-   transition-timing-function: cubic-bezier(1,0,0,1);
-   overflow: hidden;
+   background:#359EF9 ;
+   z-index: 100;
+   margin-top: -30px;
+   display: inline-flex;
 }
-.categorias li{
-   list-style: none;
-   padding: 10px;
-   color:white;
-   cursor: pointer;
-   transition: all 300ms;
-   display: block;
+.formBuscar{
+   display: inline-flex;
+   width: 100%;
 }
-
-.categorias li:hover{
-   background: rgba(0,0,0,0.2);
+.selectFiltro{
+   width: 150px;
+   height: 28px;
+   border: 1px solid white;
+   border-radius: 5px;
+   color: #359EF9;
+   font-size: 15px;
 }
-
 .contenedorCategoriasBuscar label{
    position: fixed;
    background: #359EF9;
@@ -105,47 +86,42 @@
    opacity: 1;
    font-size: 10pt;
    transition: all .55s ease;
+   cursor: pointer;
+ }
+ .iconMod{
+   width: 30px;
+   height: 28px;
+   color: white;
+   background: rgb(236, 15, 15);
+   border: none;
+   margin-left: 4px;
+   border-radius: 5px;
+   cursor: pointer;
  }
  #search.textarea:focus,input:focus, input[type]:focus {
    box-shadow: 0 2px 1px rgb(255, 255, 255)inset;
    outline: 0 none;
 }
-
+.filtroActivo{
+   width: 100%;
+   text-align: center;
+}
+.filtroActivo h3{
+   display: inline-flex;
+   color: #4f5b66;
+}
+.filtroActivo h3 p{
+   color:#47a3f3 ;
+}
 /*aqui comienza el cuerpo*/
 .cuerpoPagina{
-   margin-top: 60px;
+   margin-top: 90px;
    background-image: url(../img/background-cover.svg);
    background-size:contain;
 }
-
-
-/*AQUI COMIENZA EL FOOTER*/
-footer{
-   width: 100%;
-   padding: 5px 1px 0px;
-   font-family: sans-serif;
-}
-.contenedorFooter{
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
-   margin: auto;
-   padding-top: 10px;
-}
-.divFooter{
-   width: 100%;
-   margin: auto;
-   text-align: center;
-   background: #b6b1b1;
-}
-.divFooter p{
-   margin-top: 5px;
-   color: #7a7a7a;
+.msgEmpre{
+   margin-top: 15px;
+   margin-bottom: 15px;
+   color: #4f5b66;
 }
 
-.divFooter hr{
-   width: 100%;
-   border: none;
-   height: 1px;
-   background-color: #6b6a6a;
-}

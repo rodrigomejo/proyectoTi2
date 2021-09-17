@@ -9,7 +9,6 @@ const expresiones = {
 //Funcion Validar datos del Input
 const validarDatos = (e) => {
    document.getElementsByClassName('errorRegistro')[0].style.display = "none"
-      
 	switch (e.target.name) {
 		case "usuario":
          if (e.target.value !== "") {
@@ -153,7 +152,8 @@ function respuestaInicio(dato) {
          contenidoModal.childNodes[1].style.color= "green"
          contenidoModal.childNodes[3].innerText= "USUARIO REGISTRADO CON EXITO"
       })
-    
+   }else if(dato === "root"){
+      window.location.href = "./administrar.php"
    }else {
       contenidoModal.childNodes[3].innerText= "BIENVENIDO"+" "+ dato.toUpperCase();
       check.checked = true;
@@ -170,15 +170,15 @@ function respuestaInicio(dato) {
 //Funcion inicio de sesion 
 btnInicioForm = document.getElementById('btnInicioForm')
 btnInicioForm.addEventListener('click', function(e){    
-      e.preventDefault()
-      $.ajax({
-         url: './php/inicioUsuario.php',
-         type: 'POST',
-         data: $('#formLogin').serialize(),
-         success: function(res){
-            respuestaInicio(res);
-         }
-      })
+   e.preventDefault()
+   $.ajax({
+      url: './php/inicioUsuario.php',
+      type: 'POST',
+      data: $('#formLogin').serialize(),
+      success: function(res){
+         respuestaInicio(res);
+      }
+   })
 })
 
 //Eventos 
@@ -193,22 +193,21 @@ var cajaTraseraRegistro = document.querySelector(".cajaTraseraRegistro");
 var contenedorLoginRegistroF = document.querySelector(".contenedorLogin_Registro form");
 //Formulario inicio de sesion-Registro
 function registroForm(){
-
-      if (window.innerWidth > 850 ){
-         formRegistro.style.display = "block";
-         formLogin.style.display = "none";
-         contenedorLogin_Registro.style.left = "410px";
-         cajaTraseraRegistro.style.opacity = "0";
-         cajaTraseraLogin.style.opacity = "1";
-         registroUsuario(document.getElementById('btnRegistroForm'))
-      } else {
-         formRegistro.style.display = "block";
-         formLogin.style.display = "none";
-         contenedorLogin_Registro.style.left = "0px";
-         cajaTraseraRegistro.style.display = "none";
-         cajaTraseraLogin.style.display = "block";
-         cajaTraseraLogin.style.opacity = "1";
-      }
+   if (window.innerWidth > 850 ){
+      formRegistro.style.display = "block";
+      formLogin.style.display = "none";
+      contenedorLogin_Registro.style.left = "410px";
+      cajaTraseraRegistro.style.opacity = "0";
+      cajaTraseraLogin.style.opacity = "1";
+      registroUsuario(document.getElementById('btnRegistroForm'))
+   } else {
+      formRegistro.style.display = "block";
+      formLogin.style.display = "none";
+      contenedorLogin_Registro.style.left = "0px";
+      cajaTraseraRegistro.style.display = "none";
+      cajaTraseraLogin.style.display = "block";
+      cajaTraseraLogin.style.opacity = "1";
+   }
 }
 function login(){
 

@@ -26,10 +26,10 @@
             <p>Todos los derechos reservados © 2021</p>
          </div>
    </Footer>
-   <?php for ($i=0; $i < count($script) ; $i++) { 
+   <?php 
+      for ($i=0; $i < count($script) ; $i++) { 
           echo $script[$i];
-         }
-   ?>
-   
+      }
+   ?>  
 </body>
 </html>

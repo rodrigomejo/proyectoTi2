@@ -27,5 +27,4 @@ include 'conexion.php';
    }else{
       echo $verificarUsuario." ".$verificarCorreo." ".$verificarTelefono ;
    }
-  
 ?>

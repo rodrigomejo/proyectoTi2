@@ -1,23 +1,32 @@
-
 function  desplegarDiv(idButton) {
-   var producto1 = document.getElementById('divUsuarios');
-   var producto2 = document.getElementById('divEmprendimientos');
-   var producto3 = document.getElementById('divPendientes');
+   var divUsuarios = document.getElementById('divUsuarios');
+   var divEmprendimientos = document.getElementById('divEmprendimientos');
+   var divPendientes = document.getElementById('divPendientes');
+   var divCategorias = document.getElementById('divCategorias');
    switch(idButton.id) {
       case "liUsuarios":
-         producto1.style.display = 'block';
-         producto2.style.display = 'none';
-         producto3.style.display = 'none';
+         divUsuarios.style.display = 'block';
+         divEmprendimientos.style.display = 'none';
+         divPendientes.style.display = 'none';
+         divCategorias.style.display = 'none';
       break;
       case "liEmprendimientos":
-         producto1.style.display = 'none';
-         producto2.style.display = 'block';
-         producto3.style.display = 'none';
+         divUsuarios.style.display = 'none';
+         divEmprendimientos.style.display = 'block';
+         divPendientes.style.display = 'none';
+         divCategorias.style.display = 'none';
       break;
       case "liPendientes":
-         producto1.style.display = 'none';
-         producto2.style.display = 'none';
-         producto3.style.display = 'block';
+         divUsuarios.style.display = 'none';
+         divEmprendimientos.style.display = 'none';
+         divPendientes.style.display = 'block';
+         divCategorias.style.display = 'none';
+      break;
+      case "liCategorias":
+         divUsuarios.style.display = 'none';
+         divEmprendimientos.style.display = 'none';
+         divPendientes.style.display = 'none';
+         divCategorias.style.display = 'block';
       break;
    }
 }
@@ -56,3 +65,54 @@ function eliminarUsuario(id) {
       })
    })
 }
+document.getElementById('inputSelectMod').addEventListener('input',()=>categorias())
+function categorias() {
+      var selectElement = document.getElementById('selectCategorias');
+   if (selectElement !== null) {
+      var inputSelect = document.getElementById("inputSelectMod")
+      var btnAgregar = document.getElementById('btnAgregar')
+      var btnModificar = document.getElementById('btnModificar')
+      if (inputSelect.value ==="") {
+         btnAgregar.disabled = true;
+         btnModificar.disabled  = true;
+         selectElement.addEventListener('change', (event) => {
+            var idCategoria = document.getElementById("idCategoria")
+            idCategoria.value= "";
+            if (event.target.value!== "0") {
+               console.log(event.target.value)
+               idCategoria.value = event.target.value;
+               console.log( selectElement.options[selectElement.selectedIndex].text)
+               inputSelect.value = selectElement.options[selectElement.selectedIndex].text;
+               btnAgregar.disabled = true;
+               btnModificar.disabled  = false;
+            }else{
+               inputSelect.value ="";
+               idCategoria.value= "";
+               btnAgregar.disabled = false;
+               btnModificar.disabled  = true;
+            }
+         });
+      }else{
+         console.log("botno activado")
+         btnAgregar.disabled = false;
+         selectElement.addEventListener('change', (event) => {
+            var idCategoria = document.getElementById("idCategoria")
+            idCategoria.value= "";
+            if (event.target.value!== "0") {
+               console.log(event.target.value)
+               idCategoria.value = event.target.value;
+               console.log( selectElement.options[selectElement.selectedIndex].text)
+               inputSelect.value = selectElement.options[selectElement.selectedIndex].text;
+               btnAgregar.disabled = true;
+               btnModificar.disabled  = false;
+            }else{
+                  inputSelect.value ="";
+                  idCategoria.value= "";
+                  btnAgregar.disabled = false;
+                  btnModificar.disabled  = true;
+            }
+         });
+      }
+   }
+}
+categorias();
